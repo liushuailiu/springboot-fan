@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface StudentService {
 
-    public List<Student> queryStudent(String name);
+    public Student queryStudent();
     public SystemRole querySystemRole();
 
 }

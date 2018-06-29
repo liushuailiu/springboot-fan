@@ -5,6 +5,8 @@ import com.example.springboot_day01.pojo.Student;
 import com.example.springboot_day01.mapper.oracle.StudentMapper;
 import com.example.springboot_day01.pojo.SystemRole;
 import com.example.springboot_day01.service.StudentService;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
@@ -31,9 +33,9 @@ public class StudentServiceImpl implements StudentService {
     SystemRoleMapper systemRoleMapper;
 
     @Override
-    @Cacheable(key = "'queryStudent'.concat(#a0)")
-    public List<Student> queryStudent(String name) {
-        return studentMapper.queryAllStudent(name);
+    @Cacheable(key = "'queryStudent'")
+    public Student queryStudent() {
+        return studentMapper.queryAllStudent();
     }
     @Override
     @Cacheable(key = "'systemRoleMapper'")
