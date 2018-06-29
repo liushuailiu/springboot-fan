@@ -1,7 +1,7 @@
-package com.example.springboot_day01.mapper;
+package com.example.springboot_day01.mapper.oracle;
 
 import com.example.springboot_day01.pojo.Student;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,7 +15,8 @@ import java.util.List;
  * @since 2018-06-29
  */
 @Repository
-public interface StudentMapper extends BaseMapper<Student> {
+@Mapper
+public interface StudentMapper {
 
     public List<Student> queryAllStudent(String name);
 

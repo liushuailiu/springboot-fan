@@ -1,15 +1,15 @@
 package com.example.springboot_day01.service.impl;
 
+import com.example.springboot_day01.mapper.mysql.SystemRoleMapper;
 import com.example.springboot_day01.pojo.Student;
-import com.example.springboot_day01.mapper.StudentMapper;
+import com.example.springboot_day01.mapper.oracle.StudentMapper;
+import com.example.springboot_day01.pojo.SystemRole;
 import com.example.springboot_day01.service.StudentService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -22,21 +22,23 @@ import java.util.List;
  */
 @Service
 @CacheConfig(cacheNames = "com.example.springboot_day01.service.impl")
-public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
+public class StudentServiceImpl implements StudentService {
 
     @Autowired
     StudentMapper studentMapper;
 
+    @Autowired
+    SystemRoleMapper systemRoleMapper;
+
     @Override
-    @Cacheable(key = "'user'.concat(#a0)")
+    @Cacheable(key = "'queryStudent'.concat(#a0)")
     public List<Student> queryStudent(String name) {
         return studentMapper.queryAllStudent(name);
     }
-
     @Override
-    @Cacheable(key = "'selectById'.concat(#a0)")
-    public Student selectById(Serializable id) {
-        return super.selectById(id);
+    @Cacheable(key = "'systemRoleMapper'")
+    public SystemRole querySystemRole(){
+        return systemRoleMapper.selectByPrimaryKey(4);
     }
 
 }

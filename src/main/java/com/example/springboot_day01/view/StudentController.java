@@ -16,14 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2018-06-29
  */
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/stu")
 public class StudentController {
 
     @Autowired
     StudentService studentService;
     @GetMapping("/set")
     public Object set(){
-        return studentService.selectById(2);
+        return studentService.queryStudent("刘帅");
+    }
+
+    @GetMapping("/get")
+    public Object get(){
+        return studentService.querySystemRole();
     }
 
 }

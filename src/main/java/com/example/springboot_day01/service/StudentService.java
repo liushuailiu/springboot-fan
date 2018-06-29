@@ -1,7 +1,7 @@
 package com.example.springboot_day01.service;
 
 import com.example.springboot_day01.pojo.Student;
-import com.baomidou.mybatisplus.service.IService;
+import com.example.springboot_day01.pojo.SystemRole;
 
 import java.util.List;
 
@@ -13,8 +13,9 @@ import java.util.List;
  * @author fly
  * @since 2018-06-29
  */
-public interface StudentService extends IService<Student> {
+public interface StudentService {
 
     public List<Student> queryStudent(String name);
+    public SystemRole querySystemRole();
 
 }

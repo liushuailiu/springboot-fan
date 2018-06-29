@@ -24,12 +24,12 @@ public class ExceptionConfig {
         map.put("message",c.getMessage());
         return map;
     }
-
-    @ExceptionHandler(Exception.class)
-    public ModelAndView pageException(){
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("exception");
-        return mav;
-    }
+//   不建议使用
+//    @ExceptionHandler(Exception.class)
+//    public ModelAndView pageException(){
+//        ModelAndView mav = new ModelAndView();
+//        mav.setViewName("exception");
+//        return mav;
+//    }
 
 }
