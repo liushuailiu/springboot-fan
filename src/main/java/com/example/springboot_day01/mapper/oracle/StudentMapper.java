@@ -20,6 +20,16 @@ import java.util.List;
 public interface StudentMapper {
 
 
+    /**
+     * 查询所有学生
+     * @return
+     */
     public Student queryAllStudent();
 
+    /**
+     * 模拟用户登录
+     * @param id
+     * @return
+     */
+    Student selectStudentById(Integer id);
 }

@@ -1,5 +1,6 @@
 package com.example.springboot_day01.view;
 
+import com.example.springboot_day01.service.StudentService;
 import com.example.springboot_day01.system.exception.CustomException;
 import com.example.springboot_day01.system.file.FileSystemStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,9 @@ public class DemoController {
 
     @Autowired
     FileSystemStorageService fileSystemStorageService;
+
+    @Autowired
+    private StudentService studentService;
 
     @GetMapping("/index")
     public String index() throws Exception {
@@ -112,6 +116,15 @@ public class DemoController {
         Resource resource = fileSystemStorageService.loadAsResource(filename);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename=\""+filename+"\"")
                 .body(resource);
+    }
+
+    /**
+     * 通过用户登录,触发事件
+     * @return
+     */
+    @GetMapping("/login")
+    public Object studentLogin(){
+        return studentService.queryStudentById(1);
     }
 
 

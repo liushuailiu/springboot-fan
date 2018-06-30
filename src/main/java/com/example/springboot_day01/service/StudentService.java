@@ -18,4 +18,5 @@ public interface StudentService {
     Student queryStudent();
     SystemRole querySystemRole();
     Student selectStudent();
+    Student queryStudentById(Integer id);
 }
