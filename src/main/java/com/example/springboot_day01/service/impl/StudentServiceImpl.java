@@ -21,9 +21,11 @@ import java.util.List;
  *
  * @author fly
  * @since 2018-06-29
+ *
+ *  CacheConfig(cacheNames = "com.example.springboot_day01.service.impl")
  */
 @Service
-@CacheConfig(cacheNames = "com.example.springboot_day01.service.impl")
+
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
@@ -33,14 +35,28 @@ public class StudentServiceImpl implements StudentService {
     SystemRoleMapper systemRoleMapper;
 
     @Override
-    @Cacheable(key = "'queryStudent'")
+
+    /**
+     *  取消原来的redis缓存实现方式
+     *  Cacheable(key = "'queryStudent'")
+     */
     public Student queryStudent() {
         return studentMapper.queryAllStudent();
     }
+
     @Override
-    @Cacheable(key = "'systemRoleMapper'")
+    /**
+     * Cacheable(key = "'queryStudent'")
+     */
     public SystemRole querySystemRole(){
         return systemRoleMapper.selectByPrimaryKey(4);
     }
+
+    @Override
+    public Student selectStudent() {
+        return null;
+    }
+
+
 
 }

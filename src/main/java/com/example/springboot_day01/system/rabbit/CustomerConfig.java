@@ -15,6 +15,7 @@ import java.io.IOException;
 @Component
 public class CustomerConfig {
 
+
     /**
      * 监听名为  spring.rabbitmq.queue 的队列
      * @param student 根据传入正文设置类型

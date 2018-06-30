@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface StudentService {
 
-    public Student queryStudent();
-    public SystemRole querySystemRole();
-
+    Student queryStudent();
+    SystemRole querySystemRole();
+    Student selectStudent();
 }

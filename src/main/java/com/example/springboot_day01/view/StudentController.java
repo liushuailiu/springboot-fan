@@ -1,6 +1,5 @@
 package com.example.springboot_day01.view;
 
-
 import com.example.springboot_day01.pojo.Student;
 import com.example.springboot_day01.service.StudentService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
