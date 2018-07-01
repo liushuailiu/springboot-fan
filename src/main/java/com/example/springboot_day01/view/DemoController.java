@@ -3,6 +3,10 @@ package com.example.springboot_day01.view;
 import com.example.springboot_day01.service.StudentService;
 import com.example.springboot_day01.system.exception.CustomException;
 import com.example.springboot_day01.system.file.FileSystemStorageService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +24,7 @@ import java.util.HashMap;
  */
 @RestController
 @RequestMapping("/demo")
+@Api(value = "DemoController",tags = {"功能演示控制器"})
 public class DemoController {
 
     /**
@@ -40,6 +45,7 @@ public class DemoController {
     @Autowired
     private StudentService studentService;
 
+    @ApiOperation(value = "访问项目首页",notes = "springboot不支持直接访问静态页面,所有需要通过控制器跳转")
     @GetMapping("/index")
     public String index() throws Exception {
         throw new CustomException(501,"系统出现异常");
@@ -92,6 +98,10 @@ public class DemoController {
      * @return
      */
 
+    @ApiOperation(value = "文件上传接口",notes = "用户需要提供一个name=file的字节流文件类型")
+    @ApiImplicitParams(
+            {@ApiImplicitParam(name = "file",value = "上传文件")}
+    )
     @PostMapping("/upload")
     public Object upload(@RequestParam("file") MultipartFile multipartFile){
         String path = fileSystemStorageService.store(multipartFile);

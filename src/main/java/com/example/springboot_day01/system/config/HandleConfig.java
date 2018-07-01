@@ -42,6 +42,11 @@ public class HandleConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/image/**")
                 // 本地路径
                 .addResourceLocations(imageUrl);
+
+        // 将static下的所有文件设为静态,可以直接访问
+        registry.addResourceHandler("/swagger/**")
+                .addResourceLocations("classpath:static/dist/");
+
         super.addResourceHandlers(registry);
     }
 

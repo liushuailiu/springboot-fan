@@ -24,6 +24,7 @@ public class ExceptionConfig {
         map.put("message",c.getMessage());
         return map;
     }
+
 //   不建议使用
 //    @ExceptionHandler(Exception.class)
 //    public ModelAndView pageException(){
