@@ -54,6 +54,7 @@ public class HandleConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:templates/");
 
         super.addResourceHandlers(registry);
+
     }
 
     /**
@@ -63,7 +64,7 @@ public class HandleConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addViewControllers(ViewControllerRegistry registry) {
         //直接访问，转发到index
-        registry.addViewController("/").setViewName("forward:/index");
+        registry.addViewController("/").setViewName("forward:/index.html");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
         super.addViewControllers(registry);
     }

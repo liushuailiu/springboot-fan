@@ -112,7 +112,7 @@ public class DemoController {
     /**
      * 下载文件的接口,与SSM也没有区别,需要注意的是,
      * 这既是一个下载接口,也是一个展示图片的接口(只适用于图片与视频),
-     * 如果你的请求地址为 : <a href="/demo/download?filename=2018-06-30/dd9cca9215154be0a5ce4045f74a1f97.PNG">下载</a>,
+     * 如果你的请求地址为 : <a  ="/demo/download?filename=2018-06-30/dd9cca9215154be0a5ce4045f74a1f97.PNG">下载</a>,
      * 那么就会提供下载功能, 如果地址为 : <img src="/demo/download?filename=2018-06-30/dd9cca9215154be0a5ce4045f74a1f97.PNG">,
      * 他就会自动展示图片(实际中应用非常广泛,这样做可以避免暴露服务器真实地址),
      * 当然使用传统的通过虚拟路径的方式也可以访问到服务器图片,
