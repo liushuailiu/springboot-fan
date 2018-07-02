@@ -39,8 +39,7 @@ public class RedisCacheAop {
      * 切面将加载到每一个service的方法上
      */
 
-    @Pointcut("execution(public * com.example.springboot_day01.service.impl..select*(..)) " +
-            "|| execution(public * com.example.springboot_day01.service.impl..query*(..))")
+    @Pointcut("execution(public * com.example.springboot_day01.service.impl..select*(..)) || execution(public * com.example.springboot_day01.service.impl..query*(..))")
     public void redisCut(){
 
     }
@@ -77,6 +76,7 @@ public class RedisCacheAop {
 
         String key = packageName+methodName+argsName;
         String value = redisMapper.getValue(key);
+
         if (value==null){
             try {
                 object =  proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());

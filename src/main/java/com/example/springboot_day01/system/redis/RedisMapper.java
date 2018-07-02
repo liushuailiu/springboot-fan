@@ -24,11 +24,15 @@ public class RedisMapper {
     StringRedisTemplate stringRedisTemplate;
 
     public  void setValue(String key,String value){
-        this.stringRedisTemplate.opsForValue().set(key,value,1, TimeUnit.HOURS);
+        this.stringRedisTemplate.opsForValue().set(key,value,4, TimeUnit.HOURS);
     }
 
     public String getValue(String key){
         return this.stringRedisTemplate.opsForValue().get(key);
+    }
+
+    public void deleteValueByKey(String key){
+        stringRedisTemplate.delete(key);
     }
 
 }

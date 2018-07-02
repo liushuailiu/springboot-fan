@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 // 开启缓存
-@EnableCaching
+//@EnableCaching
 // 任务调度
 @EnableScheduling
 public class SpringbootDay01Application {

@@ -35,7 +35,10 @@ public class HandleConfig extends WebMvcConfigurationSupport {
         super.addInterceptors(registry);
     }
 
-
+    /**
+     * 配置静态资源目录
+     * @param registry
+     */
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         // 虚拟路径
@@ -46,6 +49,9 @@ public class HandleConfig extends WebMvcConfigurationSupport {
         // 将static下的所有文件设为静态,可以直接访问
         registry.addResourceHandler("/swagger/**")
                 .addResourceLocations("classpath:static/dist/");
+
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:templates/");
 
         super.addResourceHandlers(registry);
     }

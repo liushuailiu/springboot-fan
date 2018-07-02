@@ -1,9 +1,7 @@
 package com.example.springboot_day01.system.listener;
 
 import com.example.springboot_day01.pojo.Student;
-import lombok.Data;
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
 
 /**

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author fly
+ * 在这里编写登录拦截器,参考SSM中的拦截器
  */
 @Component
 public class LoginHandle implements HandlerInterceptor {

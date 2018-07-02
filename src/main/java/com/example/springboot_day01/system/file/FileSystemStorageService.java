@@ -70,7 +70,7 @@ public class FileSystemStorageService {
              * 将文件存到本地，
              * this.rootLocation.resolve(multipartFile.getOriginalFilename())的意思是：
              * 将文件名称自动追加到上传路径后边，比如上传文件叫 1.txt , resolve之后，
-             * 上传路径就变成了 E:/image/2018-06-29/32c3f5fbac5744f68ec7efa1f9940293..txt
+             * 上传路径就变成了 E:/image/2018-06-29/32c3f5fbac5744f68ec7efa1f9940293.txt
              */
             Files.copy(multipartFile.getInputStream(),this.rootLocation
                     .resolve(data)

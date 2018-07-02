@@ -57,6 +57,7 @@ public class StudentServiceImpl implements StudentService {
      * Cacheable(key = "'queryStudent'")
      */
     public SystemRole querySystemRole(){
+        System.out.println("缓存失效------------------------------");
         return systemRoleMapper.selectByPrimaryKey(4);
     }
 
